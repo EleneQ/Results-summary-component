@@ -1,0 +1,210 @@
+@font-face {
+  font-family: "HankenGrotesk";
+  font-display: swap; /* for performance reasons */
+  font-weight: 100 900; /* o that we can use all the font weight of the font */
+  src: url("assets/fonts/HankenGrotesk-VaraibleFont_wght.ttf")
+    format("truetype"); /* truetype is the format of this font because it's a .ttf, you can convert this to a woff file so that it's not as big of a file*/
+}
+
+:root {
+  /* neutral */
+  --white: hsl(0, 0%, 100%);
+  --pale-blue: hsl(221, 100%, 96%);
+  --pale-pink: hsl(310, 55%, 96%);
+  --pale-yellow: hsl(58, 93%, 89%);
+  --pale-green: hsl(113, 68%, 93%);
+  --light-lavender: hsl(241, 100%, 89%);
+  --dark-gray-blue: hsl(224, 30%, 27%);
+
+  /* gradients */
+  --light-slate-blue: hsl(252, 100%, 67%);
+  --light-royal-blue: hsl(241, 81%, 54%);
+
+  --violet-blue: hsla(256, 72%, 46%, 1);
+  --persian-blue: hsla(241, 72%, 46%, 0);
+
+  --blue-gradient: linear-gradient(
+    var(--light-slate-blue),
+    var(--light-royal-blue)
+  );
+  --circle-blue-gradient: linear-gradient(
+    var(--violet-blue),
+    var(--persian-blue)
+  );
+
+  /* primary */
+  --light-red: hsl(0, 100%, 67%);
+  --orangey-yellow: hsl(39, 100%, 56%);
+  --green-teal: hsl(166, 100%, 37%);
+  --cobalt-blue: hsl(234, 85%, 45%);
+
+  /* general */
+  --padding-medium: 2.1rem;
+  --padding-large: 3rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  font-family: "HankenGrotesk", sans-serif;
+  font-size: 1rem;
+}
+
+@media (min-width: 600px) {
+  /* so that everything's centered on a larger screen */
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+}
+
+.results-summary {
+  max-width: 43rem;
+  display: grid;
+}
+
+@media (min-width: 600px) {
+  .results-summary {
+    grid-template-columns: repeat(2, 1fr);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+}
+
+.results, 
+.summary {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.results {
+  background: var(--blue-gradient);
+  color: var(--light-lavender);
+  border-radius: 0 0 2rem 2rem;
+  padding: var(--padding-medium) var(--padding-large) var(--padding-large)
+    var(--padding-large);
+
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .results {
+    border-radius: 2rem;
+  }
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.result-score {
+  display: grid; /* so that the text inside the circle is centered */
+  place-content: center;
+  width: 12rem;
+  margin-inline: auto;
+  aspect-ratio: 1 / 1; /* so that it's a perfect circle */
+  font-size: 1.1rem;
+  background: var(--circle-blue-gradient);
+  border-radius: 50%;
+}
+
+.result-score span {
+  display: block;
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--white);
+}
+
+.results-text-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.summary {
+  padding: var(--padding-medium);
+  color: var(--dark-gray-blue);
+}
+
+.summary-middle {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 15px;
+}
+
+.summary-item-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.my-value {
+  color: var(--dark-gray-blue);
+  font-weight: 700;
+}
+
+.total-value {
+  color: var(--light-lavender);
+  font-weight: 700;
+}
+
+.summary-row[data-item-type="accent-1"] {
+  background-color: var(--pale-pink);
+  color: var(--light-red);
+}
+
+.summary-row[data-item-type="accent-2"] {
+  background-color: var(--pale-yellow);
+  color: var(--orangey-yellow);
+}
+
+.summary-row[data-item-type="accent-3"] {
+  background-color: var(--pale-green);
+  color: var(--green-teal);
+}
+
+.summary-row[data-item-type="accent-4"] {
+  background-color: var(--pale-blue);
+  color: var(--violet-blue);
+}
+
+.continue-button {
+  background-color: var(--dark-gray-blue);
+  padding: 15px 5px;
+  border-radius: 25px;
+  color: var(--white);
+  border: none;
+}
+
+.continue-button:hover {
+  background: var(--blue-gradient);
+}
