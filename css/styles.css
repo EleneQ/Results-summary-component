@@ -1,9 +1,9 @@
 @font-face {
   font-family: "HankenGrotesk";
-  font-display: swap; /* for performance reasons */
-  font-weight: 100 900; /* o that we can use all the font weight of the font */
+  font-display: swap; 
+  font-weight: 100 900; 
   src: url("assets/fonts/HankenGrotesk-VaraibleFont_wght.ttf")
-    format("truetype"); /* truetype is the format of this font because it's a .ttf, you can convert this to a woff file so that it's not as big of a file*/
+    format("truetype"); 
 }
 
 :root {
@@ -114,11 +114,11 @@ body {
 }
 
 .result-score {
-  display: grid; /* so that the text inside the circle is centered */
+  display: grid; 
   place-content: center;
   width: 12rem;
   margin-inline: auto;
-  aspect-ratio: 1 / 1; /* so that it's a perfect circle */
+  aspect-ratio: 1 / 1; 
   font-size: 1.1rem;
   background: var(--circle-blue-gradient);
   border-radius: 50%;
